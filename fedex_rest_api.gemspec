@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "fedex_rest_api/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "fedex_rest_api"
+  spec.name          = "fedex-rest-api"
   spec.version       = FedexRestApi::VERSION
   spec.authors       = ["HomeChef Tech"]
   spec.email         = ["tech-labels@homechef.com"]
