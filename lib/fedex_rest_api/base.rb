@@ -1,0 +1,2 @@
+class FedexRestApi::Base
+end
