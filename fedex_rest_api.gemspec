@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["HomeChef Tech"]
   spec.email         = ["tech-labels@homechef.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = "Testing"
+  spec.description   = "Testing"
   spec.homepage      = "https://github.com/Home-Chef-Tech/fedex-rest-api"
   spec.license       = "MIT"
 
