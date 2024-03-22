@@ -18,6 +18,9 @@ class FedexRestApi::Auth
         grant_type: credentials_object[:grant_type]
       }
     )
+
+    raise FedexRestApi::Error if response['errors']
+    response
   end
 
   def env_url
