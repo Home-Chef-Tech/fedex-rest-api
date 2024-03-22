@@ -19,7 +19,7 @@ class FedexRestApi::Auth
       }
     )
 
-    raise FedexRestApi::Error if response['errors']
+    raise FedexRestApi::Error, response['errors'] if response['errors']
     response
   end
 
