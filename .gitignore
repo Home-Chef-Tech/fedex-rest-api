@@ -10,3 +10,5 @@
 # rspec failure tracking
 .rspec_status
 
+fedex-rest-api-0.1.0.gem
+fedex_credentials.yml
