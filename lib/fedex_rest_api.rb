@@ -1,8 +1,9 @@
 require "fedex_rest_api/version"
+require "httparty"
+require "debug"
 
 class FedexRestApi
-  require "fedex_rest_api/base"
+  require "fedex_rest_api/auth"
 
-  class Error < StandardError; end
-  # Your code goes here...
+  class ApiError < StandardError; end
 end
