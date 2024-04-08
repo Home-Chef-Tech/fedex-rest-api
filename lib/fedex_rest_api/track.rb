@@ -1,5 +1,4 @@
 require "fedex_rest_api/base"
-require "debug"
 
 class FedexRestApi::Track
   attr_reader :tracking_object
@@ -9,7 +8,7 @@ class FedexRestApi::Track
   end
 
   def track
-    response = HTTParty.post("#{env_url}",
+    response = HTTParty.post(env_url,
       headers: {
         "Content-Type" => 'application/json',
         "Authorization" => "Bearer #{tracking_object[:access_token]}"
@@ -26,12 +25,12 @@ class FedexRestApi::Track
       }.to_json
     )
 
-    raise FedexRestApi::ApiError if response['errors']
+    raise FedexRestApi::ApiError if response['errors'] || response['error_description']
     response
   end
 
   def env_url
-    if tracking_object[:environment] && tracking_object[:environment] == FedexRestApi::Base::PRODUCTION_ENV
+    if tracking_object[:environment] == FedexRestApi::Base::PRODUCTION_ENV
       FedexRestApi::Base::PRODUCTION_TRACK_URL
     else
       FedexRestApi::Base::SANDBOX_TRACK_URL

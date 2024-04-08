@@ -24,7 +24,7 @@ class FedexRestApi::Auth
   end
 
   def env_url
-    if credentials_object[:environment] && credentials_object[:environment] == FedexRestApi::Base::PRODUCTION_ENV
+    if credentials_object[:environment] == FedexRestApi::Base::PRODUCTION_ENV
       FedexRestApi::Base::PRODUCTION_OAUTH_URL
     else
       FedexRestApi::Base::SANDBOX_OAUTH_URL
