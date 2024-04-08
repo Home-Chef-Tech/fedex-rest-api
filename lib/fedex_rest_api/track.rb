@@ -12,18 +12,18 @@ class FedexRestApi::Track
     response = HTTParty.post("#{env_url}",
       headers: {
         "Content-Type" => 'application/json',
-        "Authorization" => "Bearer #{tracking_object[:auth_token]}"
+        "Authorization" => "Bearer #{tracking_object[:access_token]}"
       },
       body: {
+        "includeDetailedScans": tracking_object[:include_detailed_scans],
         "trackingInfo": [
           {
             "trackingNumberInfo": {
-              "trackingNumber": tracking_object[:tracking_number]
+              "trackingNumber": tracking_object[:tracking_numbers]
             }
           }
-        ],
-        "includeDetailedScans": true
-      }
+        ]
+      }.to_json
     )
 
     raise FedexRestApi::ApiError if response['errors']
