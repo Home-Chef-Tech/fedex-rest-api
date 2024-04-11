@@ -1,9 +1,9 @@
 require "spec_helper"
 require "fedex_rest_api/auth"
-require "debug"
 
 RSpec.describe FedexRestApi::Auth do
   let(:fedex) { FedexRestApi::Auth.new(fedex_credentials) }
+
 
   context "with valid credentials", :vcr do
     it "returns a successfull (200) response " do
