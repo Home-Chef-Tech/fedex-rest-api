@@ -3,6 +3,8 @@ require "fedex_rest_api/base"
 class FedexRestApi::Address
   attr_reader :address_object
 
+  ADDRESS_VALIDATION_URL = "/address/v1/addresses/resolve".freeze
+
   def initialize(address_object)
     @address_object = address_object
   end
@@ -14,19 +16,15 @@ class FedexRestApi::Address
         "Authorization" => "Bearer #{address_object[:access_token]}"
       },
       body: {
-        "addressesToValidate": [
+        "addressesToValidate": [ # address_object[:addresses]
           {
             "address": {
-              # address_object[:address]
-              "streetLines": [
-                "7372 PARKRIDGE BLVD",
-                "APT 286",
-                "2903 sprank"
-                ],
+              "streetLines": ["7372 PARKRIDGE BLVD", "APT 286"],
               "city": "IRVING",
-              "stateOrProvinceCode": "TX", # not required
-              "postalCode": "75063-8659"
-            },
+              "stateOrProvinceCode": "TX",
+              "postalCode": "75063-8659",
+              "countryCode": "US"
+            }
           }
         ]
       }.to_json
@@ -38,9 +36,10 @@ class FedexRestApi::Address
 
   def env_url
     if address_object[:environment] == FedexRestApi::Base::PRODUCTION_ENV
-      FedexRestApi::Base::PRODUCTION_ADDRESS_URL
+      FedexRestApi::Base::PRODUCTION_ADDRESS_VALIDATION_URL
+      "#{FedexRestApi::Base::PRODUCTION_URL}#{ADDRESS_VALIDATION_URL}"
     else
-      FedexRestApi::Base::SANDBOX_ADDRESS_URL
+      "#{FedexRestApi::Base::SANDBOX_URL}#{ADDRESS_VALIDATION_URL}"
     end
   end
 end

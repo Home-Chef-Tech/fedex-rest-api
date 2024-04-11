@@ -3,6 +3,8 @@ require "fedex_rest_api/base"
 class FedexRestApi::Track
   attr_reader :tracking_object
 
+  TRACK_URL = "/track/v1/trackingnumbers".freeze
+
   def initialize(tracking_object)
     @tracking_object = tracking_object
   end
@@ -31,9 +33,9 @@ class FedexRestApi::Track
 
   def env_url
     if tracking_object[:environment] == FedexRestApi::Base::PRODUCTION_ENV
-      FedexRestApi::Base::PRODUCTION_TRACK_URL
+      "#{FedexRestApi::Base::PRODUCTION_URL}#{TRACK_URL}"
     else
-      FedexRestApi::Base::SANDBOX_TRACK_URL
+      "#{FedexRestApi::Base::SANDBOX_URL}#{TRACK_URL}"
     end
   end
 end

@@ -3,6 +3,8 @@ require "fedex_rest_api/base"
 class FedexRestApi::Auth
   attr_reader :credentials_object
 
+  OAUTH_URL = "/oauth/token".freeze
+
   def initialize(credentials_object)
     @credentials_object = credentials_object
   end
@@ -25,9 +27,9 @@ class FedexRestApi::Auth
 
   def env_url
     if credentials_object[:environment] == FedexRestApi::Base::PRODUCTION_ENV
-      FedexRestApi::Base::PRODUCTION_OAUTH_URL
+      "#{FedexRestApi::Base::PRODUCTION_URL}#{OAUTH_URL}"
     else
-      FedexRestApi::Base::SANDBOX_OAUTH_URL
+      "#{FedexRestApi::Base::SANDBOX_URL}#{OAUTH_URL}"
     end
   end
 end
