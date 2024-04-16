@@ -17,13 +17,7 @@ class FedexRestApi::Track
       },
       body: {
         "includeDetailedScans": tracking_object[:include_detailed_scans],
-        "trackingInfo": [
-          {
-            "trackingNumberInfo": {
-              "trackingNumber": tracking_object[:tracking_numbers]
-            }
-          }
-        ]
+        "trackingInfo": tracking_object[:tracking_numbers]
       }.to_json
     )
 

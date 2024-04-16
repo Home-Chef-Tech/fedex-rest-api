@@ -16,17 +16,7 @@ class FedexRestApi::Address
         "Authorization" => "Bearer #{address_object[:access_token]}"
       },
       body: {
-        "addressesToValidate": [ # address_object[:addresses]
-          {
-            "address": {
-              "streetLines": ["7372 PARKRIDGE BLVD", "APT 286"],
-              "city": "IRVING",
-              "stateOrProvinceCode": "TX",
-              "postalCode": "75063-8659",
-              "countryCode": "US"
-            }
-          }
-        ]
+        "addressesToValidate": address_object[:addresses]
       }.to_json
     )
 
