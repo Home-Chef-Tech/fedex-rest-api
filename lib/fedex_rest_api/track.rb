@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require "fedex_rest_api/base"
 
 class FedexRestApi::Track
   attr_reader :tracking_object
 
-  TRACK_URL = "/track/v1/trackingnumbers".freeze
+  TRACK_URL = "/track/v1/trackingnumbers"
 
   def initialize(tracking_object)
     @tracking_object = tracking_object

@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require "fedex_rest_api/base"
 
 class FedexRestApi::Address
   attr_reader :address_object
 
-  ADDRESS_VALIDATION_URL = "/address/v1/addresses/resolve".freeze
+  ADDRESS_VALIDATION_URL = "/address/v1/addresses/resolve"
 
   def initialize(address_object)
     @address_object = address_object
@@ -26,7 +28,6 @@ class FedexRestApi::Address
 
   def env_url
     if address_object[:environment] == FedexRestApi::Base::PRODUCTION_ENV
-      FedexRestApi::Base::PRODUCTION_ADDRESS_VALIDATION_URL
       "#{FedexRestApi::Base::PRODUCTION_URL}#{ADDRESS_VALIDATION_URL}"
     else
       "#{FedexRestApi::Base::SANDBOX_URL}#{ADDRESS_VALIDATION_URL}"

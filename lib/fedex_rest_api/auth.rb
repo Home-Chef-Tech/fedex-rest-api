@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require "fedex_rest_api/base"
 
 class FedexRestApi::Auth
   attr_reader :credentials_object
 
-  OAUTH_URL = "/oauth/token".freeze
+  OAUTH_URL = "/oauth/token"
 
   def initialize(credentials_object)
     @credentials_object = credentials_object
