@@ -1,5 +1,9 @@
-def fedex_credentials
-  @fedex_credentials ||= credentials["development"]
+def fedex_tracking_credentials
+  @fedex_tracking_credentials ||= credentials["tracking_development"]
+end
+
+def fedex_address_credentials
+  @fedex_address_credentials ||= credentials["address_development"]
 end
 
 def fedex_production_credentials

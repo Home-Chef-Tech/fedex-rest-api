@@ -33,23 +33,23 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Date:
-      - Tue, 16 Apr 2024 20:39:12 GMT
+      - Tue, 16 Apr 2024 20:34:59 GMT
       Content-Length:
       - '1353'
       Connection:
       - keep-alive
       Server-Timing:
-      - ak_p; desc="1713299952003_389030153_317854426_37168_7257_15_32_-";dur=1
+      - ak_p; desc="1713299698393_389030153_317643210_73744_7467_13_21_-";dur=1
       - cdn-cache; desc=MISS
-      - edge; dur=42
-      - origin; dur=330
+      - edge; dur=31
+      - origin; dur=707
     body:
       encoding: UTF-8
       string: "<ACCESS OBJECT>"
-  recorded_at: Tue, 16 Apr 2024 20:39:12 GMT
+  recorded_at: Tue, 16 Apr 2024 20:34:59 GMT
 - request:
     method: post
-    uri: https://apis-sandbox.fedex.com/track/v1/trackingnumbers
+    uri: https://apis-sandbox.fedex.com/address/v1/addresses/resolve
     body:
       encoding: UTF-8
       string: "<CREDENTIALS>"
@@ -78,18 +78,18 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Date:
-      - Tue, 16 Apr 2024 20:39:12 GMT
+      - Tue, 16 Apr 2024 20:34:59 GMT
       Content-Length:
-      - '8681'
+      - '2509'
       Connection:
       - keep-alive
       Server-Timing:
-      - ak_p; desc="1713299952477_389030153_317854822_19932_5866_14_44_-";dur=1
+      - ak_p; desc="1713299699440_389030156_225421265_21610_6390_13_23_-";dur=1
       - cdn-cache; desc=MISS
-      - edge; dur=29
-      - origin; dur=170
+      - edge; dur=48
+      - origin; dur=168
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: "<ACCESS OBJECT>"
-  recorded_at: Tue, 16 Apr 2024 20:39:12 GMT
+  recorded_at: Tue, 16 Apr 2024 20:34:59 GMT
 recorded_with: VCR 6.2.0
