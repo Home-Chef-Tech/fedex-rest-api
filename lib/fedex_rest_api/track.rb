@@ -15,11 +15,11 @@ class FedexRestApi::Track
     response = HTTParty.post(env_url,
       headers: {
         "Content-Type" => 'application/json',
-        "Authorization" => "Bearer #{tracking_object[:access_token]}"
+        "Authorization" => "Bearer #{tracking_object.access_token}"
       },
       body: {
-        "includeDetailedScans": tracking_object[:include_detailed_scans],
-        "trackingInfo": tracking_object[:tracking_numbers]
+        "includeDetailedScans": tracking_object.include_detailed_scans,
+        "trackingInfo": tracking_object.tracking_numbers
       }.to_json
     )
 
