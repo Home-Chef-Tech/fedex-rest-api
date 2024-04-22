@@ -29,16 +29,16 @@ http_interactions:
       Server:
       - Layer7-API-Gateway
       Date:
-      - Tue, 16 Apr 2024 20:39:12 GMT
+      - Mon, 22 Apr 2024 16:56:56 GMT
       Connection:
       - close
       Server-Timing:
-      - ak_p; desc="1713299952771_389030153_317855063_14302_7065_12_19_-";dur=1
+      - ak_p; desc="1713805016420_389030169_101994621_20040_5536_11_18_-";dur=1
       - cdn-cache; desc=MISS
-      - edge; dur=38
-      - origin; dur=105
+      - edge; dur=8
+      - origin; dur=193
     body:
       encoding: UTF-8
       string: "<ACCESS OBJECT>"
-  recorded_at: Tue, 16 Apr 2024 20:39:12 GMT
+  recorded_at: Mon, 22 Apr 2024 16:56:56 GMT
 recorded_with: VCR 6.2.0
