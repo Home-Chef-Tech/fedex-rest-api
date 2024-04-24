@@ -2,6 +2,7 @@
 
 class FedexRestApi::Base
   PRODUCTION_ENV = "production"
+  SANDBOX = "sandbox"
 
   SANDBOX_URL = "https://apis-sandbox.fedex.com"
   PRODUCTION_URL = "https://apis.fedex.com"

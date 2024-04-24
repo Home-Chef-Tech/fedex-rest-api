@@ -7,7 +7,7 @@ class FedexRestApi::Track
 
   TRACK_URL = "/track/v1/trackingnumbers"
 
-  def initialize(tracking_object, environment: nil)
+  def initialize(tracking_object, environment: FedexRestApi::Base::SANDBOX)
     @tracking_object = tracking_object
     @environment = environment
   end
