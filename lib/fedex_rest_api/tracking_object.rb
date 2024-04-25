@@ -11,7 +11,7 @@ class FedexRestApi::TrackingObject
 
   def tracking_numbers
     trackable_numbers.map do |tracking_number|
-      tracking_objects << {
+      {
         "trackingNumberInfo": {
           "trackingNumber": tracking_number
         }
