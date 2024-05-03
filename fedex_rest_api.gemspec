@@ -38,6 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "webmock", "~> 3.23"
   spec.add_development_dependency "vcr", "~> 6.2"
   spec.add_development_dependency "debug", "~> 1.8.0"
+  spec.add_development_dependency "psych", "~> 4.0"
 
   spec.add_dependency "httparty", ">= 0.14.0"
 end
