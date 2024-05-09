@@ -1,22 +1,22 @@
 require "fedex_rest_api/base"
 
 class FedexRestApi::AddressObject
-  attr_reader :access_token, :addresses
+  attr_reader :access_token, :addresses_to_validate
 
   def initialize(address_params)
     @access_token = address_params[:access_token]
-    @addresses = address_params[:addresses] || []
+    @addresses_to_validate = address_params[:addresses] || []
   end
 
-  def address_objects
-    addresses.map do |address|
+  def addresses
+    addresses_to_validate.map do |address|
       {
         address: {
-          "streetLines": [address.string(nil, format: :short)],
-          "city": address.city,
-          "stateOrProvinceCode": address.state,
-          "postalCode": address.zip,
-          "countryCode": "USA"
+          "streetLines": [address[:street]],
+          "city": address[:city],
+          "stateOrProvinceCode": address[:state],
+          "postalCode": address[:zip],
+          "countryCode": "US"
         }
       }
     end

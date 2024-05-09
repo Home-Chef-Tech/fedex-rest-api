@@ -13,7 +13,6 @@ class FedexRestApi::Address
   end
 
   def validate
-    binding.break
     response = HTTParty.post(env_url,
       headers: {
         "Content-Type" => 'application/json',
