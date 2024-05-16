@@ -12,11 +12,11 @@ class FedexRestApi::AddressObject
     addresses_to_validate.map do |address|
       {
         address: {
-          "streetLines": [address[:street]],
-          "city": address[:city],
-          "stateOrProvinceCode": address[:state],
-          "postalCode": address[:zip],
-          "countryCode": "US"
+          streetLines: address[:address][:street],
+          city: address[:address][:city],
+          stateOrProvinceCode: address[:address][:state],
+          postalCode: address[:address][:zip],
+          countryCode: address[:address][:country]
         }
       }
     end
