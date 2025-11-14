@@ -33,20 +33,23 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Date:
-      - Mon, 22 Apr 2024 16:56:56 GMT
+      - Fri, 14 Nov 2025 18:39:48 GMT
       Content-Length:
       - '1353'
       Connection:
       - keep-alive
       Server-Timing:
-      - ak_p; desc="1713805015716_389030169_101993773_35448_9745_14_30_-";dur=1
+      - ak_p; desc="1763145587874_399513680_1378298638_41427_8252_7_27_-";dur=1
       - cdn-cache; desc=MISS
-      - edge; dur=44
-      - origin; dur=311
+      - edge; dur=98
+      - origin; dur=317
+      Set-Cookie:
+      - fdx_bman=4e10d7c2f3284f00adec33baa717ba65; path=/; domain=.apis-sandbox.fedex.com;
+        Secure
     body:
       encoding: UTF-8
       string: "<ACCESS OBJECT>"
-  recorded_at: Mon, 22 Apr 2024 16:56:56 GMT
+  recorded_at: Fri, 14 Nov 2025 18:39:48 GMT
 - request:
     method: post
     uri: https://apis-sandbox.fedex.com/track/v1/trackingnumbers
@@ -78,18 +81,21 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Date:
-      - Mon, 22 Apr 2024 16:56:56 GMT
+      - Fri, 14 Nov 2025 18:39:48 GMT
       Content-Length:
-      - '8681'
+      - '22267'
       Connection:
       - keep-alive
       Server-Timing:
-      - ak_p; desc="1713805016153_389030169_101994269_19682_7243_13_18_-";dur=1
+      - ak_p; desc="1763145588366_399513680_1378301938_17598_7032_8_21_-";dur=1
       - cdn-cache; desc=MISS
-      - edge; dur=9
-      - origin; dur=188
+      - edge; dur=69
+      - origin; dur=107
+      Set-Cookie:
+      - fdx_bman=c43fbcb3ee394614ab8fb70b7e334546; path=/; domain=.apis-sandbox.fedex.com;
+        Secure
     body:
       encoding: ASCII-8BIT
       string: "<ACCESS OBJECT>"
-  recorded_at: Mon, 22 Apr 2024 16:56:56 GMT
-recorded_with: VCR 6.2.0
+  recorded_at: Fri, 14 Nov 2025 18:39:48 GMT
+recorded_with: VCR 6.3.1

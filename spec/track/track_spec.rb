@@ -5,7 +5,15 @@ require "fedex_rest_api/track"
 RSpec.describe FedexRestApi::Track do
   let(:auth) { FedexRestApi::Auth.new(fedex_tracking_credentials).fetch_token }
   let(:fedex) { FedexRestApi::Track.new(tracking_object) }
-  let(:tracking_object) { FedexRestApi::TrackingObject.new({access_token: auth["access_token"], include_detailed_scans: true, trackable_numbers: [794843185271, 449044304137821]}) }
+  let(:tracking_object) do
+    FedexRestApi::TrackingObject.new(
+      {
+        access_token: auth["access_token"],
+        include_detailed_scans: true,
+        trackable_numbers: [794843185271, 449044304137821]
+      }
+    ) 
+  end
 
   context "with a valid access token", :vcr do
     describe "when a request is submitted with one or more valid tracking numbers" do

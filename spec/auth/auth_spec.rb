@@ -4,9 +4,8 @@ require "fedex_rest_api/auth"
 RSpec.describe FedexRestApi::Auth do
   let(:fedex) { FedexRestApi::Auth.new(fedex_tracking_credentials) }
 
-
   context "with valid credentials", :vcr do
-    it "returns a successfull (200) response " do
+    it "returns a successful response" do
       response = fedex.fetch_token
 
       expect(response.keys).to contain_exactly("access_token", "expires_in", "scope", "token_type")

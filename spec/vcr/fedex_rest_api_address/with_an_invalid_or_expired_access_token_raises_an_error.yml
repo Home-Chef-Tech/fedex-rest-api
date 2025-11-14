@@ -29,16 +29,19 @@ http_interactions:
       Server:
       - Layer7-API-Gateway
       Date:
-      - Tue, 16 Apr 2024 20:34:59 GMT
+      - Fri, 14 Nov 2025 18:38:16 GMT
       Connection:
       - close
       Server-Timing:
-      - ak_p; desc="1713299699776_389030156_225421575_8485_6608_11_24_-";dur=1
+      - ak_p; desc="1763145496685_399513680_1377779119_9265_7083_9_19_-";dur=1
       - cdn-cache; desc=MISS
-      - edge; dur=36
-      - origin; dur=49
+      - edge; dur=72
+      - origin; dur=21
+      Set-Cookie:
+      - fdx_bman=4e10d7c2f3284f00adec33baa717ba65; path=/; domain=.apis-sandbox.fedex.com;
+        Secure
     body:
       encoding: UTF-8
       string: "<ACCESS OBJECT>"
-  recorded_at: Tue, 16 Apr 2024 20:34:59 GMT
-recorded_with: VCR 6.2.0
+  recorded_at: Fri, 14 Nov 2025 18:38:16 GMT
+recorded_with: VCR 6.3.1
