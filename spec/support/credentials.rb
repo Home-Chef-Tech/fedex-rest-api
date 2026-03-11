@@ -6,6 +6,10 @@ def fedex_address_credentials
   @fedex_address_credentials ||= credentials["address_development"]
 end
 
+def fedex_shipment_credentials
+  @fedex_shipment_credentials ||= credentials["address_development"]
+end
+
 def fedex_production_credentials
   @fedex_production_credentials ||= credentials["production"]
 end
