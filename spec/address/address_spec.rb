@@ -4,7 +4,8 @@ require "fedex_rest_api/address"
 
 RSpec.describe FedexRestApi::Address do
   let(:auth) { FedexRestApi::Auth.new(fedex_address_credentials).fetch_token }
-  let(:fedex) { FedexRestApi::Address.new({access_token: auth["access_token"], addresses: [sample_address]}) }
+  let(:address_object) { FedexRestApi::AddressObject.new({access_token: auth["access_token"], addresses: [sample_address]}) }
+  let(:fedex) { FedexRestApi::Address.new(address_object) }
 
   context "with a valid access token", :vcr do
     describe "when a request is submitted with one or more valid addresses" do
