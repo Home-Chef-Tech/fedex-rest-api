@@ -19,35 +19,39 @@ class FedexRestApi::ShipmentObject
     @access_token = shipment_params[:access_token]
     @account_number = shipment_params[:account_number]
     @shipper = shipment_params[:shipper]
+    @recipients = shipment_params[:recipients] || []
     @ship_datestamp = shipment_params[:ship_datestamp]
     @label_response_options = shipment_params[:label_response_options] || "LABEL"
-    @recipients = shipment_params[:recipients] || []
     @pickup_type = shipment_params[:pickup_type] || "USE_SCHEDULED_PICKUP"
     @service_type = shipment_params[:service_type] || "GROUND_HOME_DELIVERY"
     @packaging_type = shipment_params[:packaging_type] || "YOUR_PACKAGING"
-    @shipping_charges_payment = shipment_params[:shipping_charges_payment] || "SENDER"
+    @shipping_charges_payment = shipment_params[:shipping_charges_payment] || { payment_type: "SENDER" }
     @label_specification = shipment_params[:label_specification] || { label_stock_type: "STOCK_4X6", image_type: "ZPLII" }
-    @requested_package_line_items = shipment_params[:requested_package_line_items] || [{ weight: 15, units: "LB" }]
+    @requested_package_line_items = shipment_params[:requested_package_line_items] || [{ weight: { value: 15, units: "LB" } }]
     @total_weight = shipment_params[:total_weight] || 15
   end
 
   def body
     {
       labelResponseOptions: label_response_options,
-      accountNumber: account_number,
+      accountNumber: {
+        value: account_number
+      },
       requestedShipment: {
         shipDatestamp: ship_datestamp,
-        shipper: location_info(shipper),
-        recipients: recipients.map { |recipient| location_info(recipient) },
+        shipper: shipper_info(shipper),
+        recipients: recipients.map { |recipient| recipient_info(recipient) },
         pickupType: pickup_type,
         serviceType: service_type,
         packagingType: packaging_type,
-        shippingChargesPayment: shipping_charges_payment[:payment_type],
+        shippingChargesPayment: {
+          paymentType: shipping_charges_payment[:payment_type]
+        },
         labelSpecification: {
           labelStockType: label_specification[:label_stock_type],
           imageType: label_specification[:image_type]
         },
-        requestedPackageLineItems: requested_package_line_items ,
+        requestedPackageLineItems: requested_package_line_items,
         totalWeight: total_weight
       },
     }
@@ -55,21 +59,37 @@ class FedexRestApi::ShipmentObject
 
   private
 
-  def location_info(location)
-    result = {
+  def shipper_info(location)
+    {
       address: {
         streetLines: location[:address][:street_lines],
         city: location[:address][:city],
         stateOrProvinceCode: location[:address][:state_or_province_code],
         postalCode: location[:address][:postal_code],
-        countryCode: location[:address][:country_code]
+        countryCode: location[:address][:country_code],
+        personName: location
       },
       contact: {
-        phoneNumber: location[:contact][:phone_number]
+        phoneNumber: location[:contact][:phone_number],
+        companyName: location[:contact][:company_name]
       }
     }
-    result[:contact][:personName] = location[:contact][:person_name] if location[:contact][:person_name]
-    result[:contact][:companyName] = location[:contact][:company_name] if location[:contact][:company_name]
-    result
+  end
+
+  def recipient_info(location)
+    {
+      address: {
+        streetLines: location[:address][:street_lines],
+        city: location[:address][:city],
+        stateOrProvinceCode: location[:address][:state_or_province_code],
+        postalCode: location[:address][:postal_code],
+        countryCode: location[:address][:country_code],
+        residential: true
+      },
+      contact: {
+        phoneNumber: location[:contact][:phone_number],
+        personName: location[:contact][:person_name]
+      }
+    }
   end
 end

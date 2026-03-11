@@ -18,8 +18,10 @@ RSpec.describe FedexRestApi::Address do
   end
 
   context "with an invalid or expired access token", :vcr do
+    let(:address_object) { FedexRestApi::AddressObject.new({access_token: "invalid"}) }
+
     it "raises an error" do
-      expect{FedexRestApi::Address.new({access_token: "123"}).validate}.to raise_error(FedexRestApi::ApiError)
+      expect{FedexRestApi::Address.new(address_object).validate}.to raise_error(FedexRestApi::ApiError)
     end
   end
 end
@@ -27,11 +29,11 @@ end
 def sample_address
   {
     "address": {
-      "streetLines": ["7372 PARKRIDGE BLVD", "APT 286"],
+      "street": ["7372 PARKRIDGE BLVD", "APT 286"],
       "city": "IRVING",
       "stateOrProvinceCode": "TX",
       "postalCode": "75063-8659",
-      "countryCode": "US"
+      "country": "US"
     }
   }
 end

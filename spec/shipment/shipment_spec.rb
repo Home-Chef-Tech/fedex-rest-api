@@ -6,7 +6,7 @@ RSpec.describe FedexRestApi::Shipment do
   let(:valid_shipment_object_params) {
     {
       access_token: auth["access_token"], 
-      account_number: "000000000", 
+      account_number: "510087720", 
       shipper: {
         address: { 
           street_lines: ["10 FedEx Parkway", "Suite 302"], 
@@ -15,7 +15,7 @@ RSpec.describe FedexRestApi::Shipment do
           postal_code: "90210", 
           country_code: "US" 
         },
-        contact: { person_name: "John Taylor", phone_number: "1234567890" }
+        contact: { company_name: "Home Chef", phone_number: "1234567890" }
       }, 
       recipients: [{
         address: { 
@@ -27,7 +27,8 @@ RSpec.describe FedexRestApi::Shipment do
         },
         contact: { person_name: "Jane Doe", phone_number: "0987654321" }
       }], 
-      shipping_charges_payment: {payment_type: "SENDER"}
+      shipping_charges_payment: { payment_type: "SENDER" },
+      ship_datestamp: Time.now.strftime("%Y-%m-%d")
     }
   }
   let(:auth) { FedexRestApi::Auth.new(fedex_shipment_credentials).fetch_token }

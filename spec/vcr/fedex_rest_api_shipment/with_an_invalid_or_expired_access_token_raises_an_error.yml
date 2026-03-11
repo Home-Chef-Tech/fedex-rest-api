@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://apis-sandbox.fedex.com/oauth/token
+    body:
+      encoding: UTF-8
+      string: "<CREDENTIALS>"
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Api-Mode:
+      - Sandbox
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Server:
+      - Layer7-API-Gateway
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Wed, 11 Mar 2026 21:40:54 GMT
+      Content-Length:
+      - '1353'
+      Connection:
+      - keep-alive
+      Server-Timing:
+      - ak_p; desc="1773265254014_390713002_791030439_43264_10931_24_69_-";dur=1
+      - cdn-cache; desc=MISS
+      - edge; dur=119
+      - origin; dur=313
+      Set-Cookie:
+      - fdx_bman=9b5238c213e543fa9aaeb077dcfc970f; path=/; domain=.apis-sandbox.fedex.com;
+        Secure
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<ACCESS_TOKEN>","token_type":"bearer","expires_in":3599,"scope":"CXS-TP"}'
+  recorded_at: Wed, 11 Mar 2026 21:40:54 GMT
+- request:
+    method: post
+    uri: https://apis-sandbox.fedex.com/ship/v1/shipments
+    body:
+      encoding: UTF-8
+      string: "<CREDENTIALS>"
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<AUTH>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '45'
+      Server:
+      - Layer7-API-Gateway
+      Date:
+      - Wed, 11 Mar 2026 21:40:54 GMT
+      Connection:
+      - close
+      Server-Timing:
+      - ak_p; desc="1773265254583_390713002_791031110_8777_9226_21_52_-";dur=1
+      - cdn-cache; desc=MISS
+      - edge; dur=56
+      - origin; dur=32
+      Set-Cookie:
+      - fdx_bman=999af45e21114d26bd55c9a6189d840f; path=/; domain=.apis-sandbox.fedex.com;
+        Secure
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"error_description\":\"Invalid CXS JWT\"\r\n}"
+  recorded_at: Wed, 11 Mar 2026 21:40:54 GMT
+recorded_with: VCR 6.4.0
