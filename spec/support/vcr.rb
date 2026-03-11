@@ -7,8 +7,16 @@ VCR.configure do |c|
   c.filter_sensitive_data('<CREDENTIALS>') { |interaction|
     interaction.request['body'].sub('string ', '')
   }
-  c.filter_sensitive_data('<ACCESS OBJECT>') { |interaction|
-    interaction.response['body'].sub('string ', '')
+  c.filter_sensitive_data('<ACCESS_TOKEN>') { |interaction|
+    body = JSON.parse(interaction.response.body)['access_token']
+  }
+  c.filter_sensitive_data('<TRANSACTION_ID>') { |interaction|
+    body = JSON.parse(interaction.response.body)['transactionId']
+  }
+  c.filter_sensitive_data('<TRACKING_RESPONSE_BODY>') { |interaction|
+    if interaction.request.uri.include?('trackingnumbers') 
+      interaction.request['body'].sub('string ', '')
+    end
   }
   c.filter_sensitive_data('<AUTH>') { |interaction|
     interaction.request.headers['Authorization'][0] unless interaction.request.headers['Authorization'].nil?
