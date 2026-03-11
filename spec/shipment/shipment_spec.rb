@@ -5,7 +5,7 @@ require "fedex_rest_api/shipment"
 RSpec.describe FedexRestApi::Shipment do
   let(:valid_shipment_object_params) {
     {
-      access_token: "test_token", 
+      access_token: auth["access_token"], 
       account_number: "000000000", 
       shipper: {
         address: { 
@@ -30,6 +30,7 @@ RSpec.describe FedexRestApi::Shipment do
       shipping_charges_payment: {payment_type: "SENDER"}
     }
   }
+  let(:auth) { FedexRestApi::Auth.new(fedex_shipment_credentials).fetch_token }
   let(:shipment_object) { FedexRestApi::ShipmentObject.new(valid_shipment_object_params) }
   let(:subject) { described_class.new(FedexRestApi::ShipmentObject.new(valid_shipment_object_params)) }
 
