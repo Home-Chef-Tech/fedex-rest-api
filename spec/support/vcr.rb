@@ -8,10 +8,10 @@ VCR.configure do |c|
     interaction.request['body'].sub('string ', '')
   }
   c.filter_sensitive_data('<ACCESS_TOKEN>') { |interaction|
-    body = JSON.parse(interaction.response.body)['access_token']
+    \JSON.parse(interaction.response.body)['access_token']
   }
   c.filter_sensitive_data('<TRANSACTION_ID>') { |interaction|
-    body = JSON.parse(interaction.response.body)['transactionId']
+    \JSON.parse(interaction.response.body)['transactionId']
   }
   c.filter_sensitive_data('<TRACKING_RESPONSE_BODY>') { |interaction|
     if interaction.request.uri.include?('trackingnumbers') 
