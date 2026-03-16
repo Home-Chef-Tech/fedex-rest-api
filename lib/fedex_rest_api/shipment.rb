@@ -14,10 +14,10 @@ class FedexRestApi::Shipment
 
   def label
     response = HTTParty.post(env_url,
-    headers: {
-      "Content-Type" => "application/json",
-      "Authorization" => "Bearer #{shipment_object.access_token}"
-    },
+      headers: {
+        "Content-Type" => "application/json",
+        "Authorization" => "Bearer #{shipment_object.access_token}"
+      },
       body: shipment_object.body.to_json
     )
 
