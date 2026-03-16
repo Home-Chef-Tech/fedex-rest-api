@@ -13,9 +13,10 @@ VCR.configure do |c|
   c.filter_sensitive_data('<TRANSACTION_ID>') { |interaction|
     JSON.parse(interaction.response.body)['transactionId']
   }
-  c.filter_sensitive_data('<TRACKING_RESPONSE_BODY>') { |interaction|
-    if interaction.request.uri.include?('trackingnumbers') 
-      interaction.request['body'].sub('string ', '')
+  c.filter_sensitive_data('{"<REDACTED_RESPONSE_KEY>":"<REDACTED_RESPONSE_BODY>"}') { |interaction|
+    uri = interaction.request.uri
+    if uri.include?('track/v1/trackingnumbers') || uri.include?('ship/v1/shipments')
+      interaction.response['body'].sub('string ', '')
     end
   }
   c.filter_sensitive_data('<AUTH>') { |interaction|
