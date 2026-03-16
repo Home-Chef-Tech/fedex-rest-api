@@ -67,7 +67,7 @@ class FedexRestApi::ShipmentObject
         stateOrProvinceCode: location[:address][:state_or_province_code],
         postalCode: location[:address][:postal_code],
         countryCode: location[:address][:country_code],
-        personName: location
+        personName: location[:customer_name]
       },
       contact: {
         phoneNumber: location[:contact][:phone_number],
