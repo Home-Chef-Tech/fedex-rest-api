@@ -14,16 +14,18 @@ class FedexRestApi::Shipment
 
   def label
     response = HTTParty.post(env_url,
-      headers: {
-        "Content-Type" => "application/json",
-        "Authorization" => "Bearer #{shipment_object.access_token}"
-      },
+    headers: {
+      "Content-Type" => "application/json",
+      "Authorization" => "Bearer #{shipment_object.access_token}"
+    },
       body: shipment_object.body.to_json
     )
 
     raise FedexRestApi::ApiError if response["errors"] || response["error_description"]
     response
   end
+
+  private
 
   def env_url
     if environment == FedexRestApi::Base::PRODUCTION_ENV
