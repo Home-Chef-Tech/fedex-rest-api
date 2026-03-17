@@ -8,6 +8,8 @@ class FedexRestApi
   require "fedex_rest_api/tracking_object"
   require "fedex_rest_api/address"
   require "fedex_rest_api/address_object"
+  require "fedex_rest_api/shipment"
+  require "fedex_rest_api/shipment_object"
 
   class ApiError < StandardError; end
 end

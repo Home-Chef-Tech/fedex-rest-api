@@ -33,26 +33,26 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Date:
-      - Mon, 16 Mar 2026 21:23:36 GMT
+      - Mon, 16 Mar 2026 21:23:34 GMT
       Content-Length:
       - '1353'
       Connection:
       - keep-alive
       Server-Timing:
-      - ak_p; desc="1773696216576_399139593_188967335_33207_4447_7_39_-";dur=1
+      - ak_p; desc="1773696214144_399139593_188965819_42607_4023_7_106_-";dur=1
       - cdn-cache; desc=MISS
-      - edge; dur=41
-      - origin; dur=292
+      - edge; dur=35
+      - origin; dur=390
       Set-Cookie:
-      - fdx_bman=56665e3ff1ab4872961beb435ca7df4a; path=/; domain=.apis-sandbox.fedex.com;
+      - fdx_bman=09de53f82c04464e806db59e5c6da761; path=/; domain=.apis-sandbox.fedex.com;
         Secure
     body:
       encoding: UTF-8
       string: '{"access_token":"<ACCESS_TOKEN>","token_type":"bearer","expires_in":3599,"scope":"CXS-TP"}'
-  recorded_at: Mon, 16 Mar 2026 21:23:36 GMT
+  recorded_at: Mon, 16 Mar 2026 21:23:33 GMT
 - request:
     method: post
-    uri: https://apis-sandbox.fedex.com/track/v1/trackingnumbers
+    uri: https://apis-sandbox.fedex.com/ship/v1/shipments
     body:
       encoding: UTF-8
       string: "<CREDENTIALS>"
@@ -81,21 +81,21 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Date:
-      - Mon, 16 Mar 2026 21:23:37 GMT
+      - Mon, 16 Mar 2026 21:23:36 GMT
       Content-Length:
-      - '22267'
+      - '7652'
       Connection:
       - keep-alive
       Server-Timing:
-      - ak_p; desc="1773696216988_399139595_1283652972_12341_5518_8_49_-";dur=1
+      - ak_p; desc="1773696214708_399139595_1283638380_177818_5052_7_43_-";dur=1
       - cdn-cache; desc=MISS
-      - edge; dur=32
-      - origin; dur=92
+      - edge; dur=67
+      - origin; dur=1714
       Set-Cookie:
-      - fdx_bman=9b0ef7e6f0514586adea6a32a814076d; path=/; domain=.apis-sandbox.fedex.com;
+      - fdx_bman=5abb1e4a31554a5fbe1feabe9f8e9a73; path=/; domain=.apis-sandbox.fedex.com;
         Secure
     body:
       encoding: ASCII-8BIT
       string: '{"<REDACTED_RESPONSE_KEY>":"<REDACTED_RESPONSE_BODY>"}'
-  recorded_at: Mon, 16 Mar 2026 21:23:36 GMT
+  recorded_at: Mon, 16 Mar 2026 21:23:35 GMT
 recorded_with: VCR 6.4.0

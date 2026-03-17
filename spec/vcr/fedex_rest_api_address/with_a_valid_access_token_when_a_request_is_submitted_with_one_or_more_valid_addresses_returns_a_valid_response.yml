@@ -33,20 +33,23 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Date:
-      - Tue, 16 Apr 2024 20:34:59 GMT
+      - Wed, 11 Mar 2026 21:40:50 GMT
       Content-Length:
       - '1353'
       Connection:
       - keep-alive
       Server-Timing:
-      - ak_p; desc="1713299698393_389030153_317643210_73744_7467_13_21_-";dur=1
+      - ak_p; desc="1773265249676_390712999_468456832_31050_8829_22_47_-";dur=1
       - cdn-cache; desc=MISS
-      - edge; dur=31
-      - origin; dur=707
+      - edge; dur=42
+      - origin; dur=268
+      Set-Cookie:
+      - fdx_bman=5abb1e4a31554a5fbe1feabe9f8e9a73; path=/; domain=.apis-sandbox.fedex.com;
+        Secure
     body:
       encoding: UTF-8
-      string: "<ACCESS OBJECT>"
-  recorded_at: Tue, 16 Apr 2024 20:34:59 GMT
+      string: '{"access_token":"<ACCESS_TOKEN>","token_type":"bearer","expires_in":3599,"scope":"CXS-TP"}'
+  recorded_at: Wed, 11 Mar 2026 21:40:50 GMT
 - request:
     method: post
     uri: https://apis-sandbox.fedex.com/address/v1/addresses/resolve
@@ -78,18 +81,23 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Date:
-      - Tue, 16 Apr 2024 20:34:59 GMT
+      - Wed, 11 Mar 2026 21:40:51 GMT
       Content-Length:
-      - '2509'
+      - '849'
       Connection:
       - keep-alive
       Server-Timing:
-      - ak_p; desc="1713299699440_389030156_225421265_21610_6390_13_23_-";dur=1
+      - ak_p; desc="1773265250109_390712999_468457105_82378_9877_25_67_-";dur=1
       - cdn-cache; desc=MISS
-      - edge; dur=48
-      - origin; dur=168
+      - edge; dur=42
+      - origin; dur=782
+      Set-Cookie:
+      - fdx_bman=e2bd494e51f14048a9f6b47ca46c6590; path=/; domain=.apis-sandbox.fedex.com;
+        Secure
     body:
       encoding: UTF-8
-      string: "<ACCESS OBJECT>"
-  recorded_at: Tue, 16 Apr 2024 20:34:59 GMT
-recorded_with: VCR 6.2.0
+      string: '{"transactionId":"<TRANSACTION_ID>","output":{"resolvedAddresses":[{"streetLinesToken":["7372
+        PARKRIDGE BLVD","APT 286"],"city":"IRVING","countryCode":"US","classification":"UNKNOWN","ruralRouteHighwayContract":false,"generalDelivery":false,"customerMessages":[{"code":"STANDARDIZED.ADDRESS.NOTFOUND","message":"GENERIC.ERROR"}],"attributes":{"SuiteRequiredButMissing":"false","PostalValidated":"false","InvalidSuiteNumber":"false","ZIP11Match":"false","GeneralDelivery":"false","DPV":"false","DataVintage":"April
+        2023","ZIP4Match":"false","CityStateValidated":"false","CountrySupported":"true","ValidlyFormed":"false","Matched":"false","StreetValidated":"false","MissingOrAmbiguousDirectional":"false","Resolved":"false","StreetRangeValidated":"false","AddressType":"NORMALIZED","Inserted":"false","MultipleMatches":"false"}}]}}'
+  recorded_at: Wed, 11 Mar 2026 21:40:51 GMT
+recorded_with: VCR 6.4.0
