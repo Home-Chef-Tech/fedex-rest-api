@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fedex-rest-api (0.2.0)
+    fedex-rest-api (0.2.1)
       httparty (>= 0.14.0)
 
 GEM
