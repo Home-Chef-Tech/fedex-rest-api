@@ -27,7 +27,7 @@ class FedexRestApi::ShipmentObject
     @packaging_type = shipment_params[:packaging_type] || "YOUR_PACKAGING"
     @shipping_charges_payment = shipment_params[:shipping_charges_payment] || { payment_type: "SENDER" }
     @label_specification = shipment_params[:label_specification] || { label_stock_type: "STOCK_4X6", image_type: "ZPLII" }
-    @total_weight = shipment_params[:total_weight].present? ? shipment_params[:total_weight].to_f : 15.to_f
+    @total_weight = shipment_params[:total_weight].nil? ? 15.to_f : shipment_params[:total_weight].to_f
     @requested_package_line_items = shipment_params[:requested_package_line_items] || [{ weight: { value: total_weight, units: "LB" } }]
   end
 
