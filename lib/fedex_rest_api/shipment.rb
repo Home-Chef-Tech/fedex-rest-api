@@ -21,7 +21,7 @@ class FedexRestApi::Shipment
       body: shipment_object.body.to_json
     )
 
-    raise FedexRestApi::ApiError if response["errors"] || response["error_description"]
+    raise FedexRestApi::ApiError.new(response) if response["errors"]
     response
   end
 
