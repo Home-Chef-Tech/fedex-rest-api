@@ -83,7 +83,8 @@ class FedexRestApi::ShipmentObject
         city: location[:address][:city],
         stateOrProvinceCode: location[:address][:state_or_province_code],
         postalCode: location[:address][:postal_code],
-        countryCode: location[:address][:country_code]
+        countryCode: location[:address][:country_code],
+        residential: location[:address][:residential]
       },
       contact: {
         phoneNumber: location[:contact][:phone_number],
