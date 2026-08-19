@@ -8,6 +8,7 @@ class FedexRestApi::ShipmentObject
               :recipients,
               :pickup_type,
               :service_type,
+              :shipment_special_services
               :packaging_type,
               :shipping_charges_payment,
               :label_specification,
@@ -24,6 +25,7 @@ class FedexRestApi::ShipmentObject
     @label_response_options = shipment_params[:label_response_options] || "LABEL"
     @pickup_type = shipment_params[:pickup_type] || "USE_SCHEDULED_PICKUP"
     @service_type = shipment_params[:service_type] || "GROUND_HOME_DELIVERY"
+    @shipment_special_services = shipment_params[:shipment_special_services] || { special_service_types: [] }
     @packaging_type = shipment_params[:packaging_type] || "YOUR_PACKAGING"
     @shipping_charges_payment = shipment_params[:shipping_charges_payment] || { payment_type: "SENDER" }
     @label_specification = shipment_params[:label_specification] || { label_stock_type: "STOCK_4X6", image_type: "ZPLII" }
@@ -43,6 +45,9 @@ class FedexRestApi::ShipmentObject
         recipients: recipients.map { |recipient| recipient_info(recipient) },
         pickupType: pickup_type,
         serviceType: service_type,
+        shipmentSpecialServices: {
+          specialServiceTypes: shipment_special_services[:special_service_types]
+        },
         packagingType: packaging_type,
         shippingChargesPayment: {
           paymentType: shipping_charges_payment[:payment_type]
