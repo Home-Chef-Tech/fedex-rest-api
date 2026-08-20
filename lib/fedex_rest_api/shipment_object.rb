@@ -8,7 +8,7 @@ class FedexRestApi::ShipmentObject
               :recipients,
               :pickup_type,
               :service_type,
-              :shipment_special_services
+              :shipment_special_services,
               :packaging_type,
               :shipping_charges_payment,
               :label_specification,
