@@ -28,6 +28,7 @@ RSpec.describe FedexRestApi::Shipment do
         contact: { person_name: "Jane Doe", phone_number: "0987654321" }
       }], 
       shipping_charges_payment: { payment_type: "SENDER" },
+      shipment_special_services: { special_service_types: ["SATURDAY_DELIVERY"] },
       ship_datestamp: Time.now.strftime("%Y-%m-%d")
     }
   }
